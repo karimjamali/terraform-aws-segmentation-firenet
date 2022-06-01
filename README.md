@@ -7,21 +7,19 @@ It builds the following:
 Aviatrix Transit with FireNet having Palo Alto Networks VM-series Firewalls.   
 Another Aviatrix Transit without FireNet.   
 2 Spoke VPCs (Prod/Dev) attached to Aviatrix Transit with FireNet.   
-1 Spoke VPC (Shared Services) attached to the other Aviatrix Transit (Without Firenet).  
-Aviatrix Transit in Azure with 2 spokes.   
-Aviatrix Transit in GCP with 1 spoke.   
+1 Spoke VPC (Shared Services) attached to the other Aviatrix Transit (Without Firenet).   
 3 x Ubuntu VMs with Key Pairs where each Ubuntu VM lies in one spoke.    
 Site2Cloud connection between AWS Transit with FireNet and on-prem (emulated by CSR in AWS).     
 
 The general objective was to showcase Multi-Cloud Network Segmentation (MCNS) and FireNet. 
 
-# Component	Version
+# Component	Version:
 Aviatrix Controller	UserConnect-6.7.1186
 Aviatrix Terraform Provider	= 2.22.0
 Terraform	> 1.0
 AWS Terraform Provider	= 4.16.0
 
-# Dependencies.   
+# Dependencies:
 Software version requirements met.     
 Aviatrix Controller & Copilot need to be up and running.   
 Onboarding the AWS Account is automated.       
