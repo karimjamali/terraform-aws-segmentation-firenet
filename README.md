@@ -11,21 +11,19 @@ Another Aviatrix Transit without FireNet.
 Aviatrix Transit in Azure with 2 spokes.   
 Aviatrix Transit in GCP with 1 spoke.   
 3 x Ubuntu VMs with Key Pairs where each Ubuntu VM lies in one spoke.    
- 
 Site2Cloud connection between AWS Transit with FireNet and on-prem (emulated by CSR in AWS).     
-  
+
+The general objective was to showcase Multi-Cloud Network Segmentation (MCNS) and FireNet. 
 
 Component	Version
-Aviatrix Controller	UserConnect-6.6.5612 (6.6)
+Aviatrix Controller	UserConnect-6.7.1186
 Aviatrix Terraform Provider	> 2.21.2
 Terraform	> 1.0
-Azure Terraform Provider	> 3.0.0
-GCP Terraform Provider	3.49
 AWS Terraform Provider	> 3.0
+
 Dependencies
 Software version requirements met
 Aviatrix Controller with Access Accounts defined for AWS, and GCP. Default account names are 'aws-account' and 'gcp-account' respectively.
-Azure account will be onboarded matching the TF credentials provided as environment variables.
 Sufficient limits in place for CSPs and regions in scope (EIPs, Compute quotas, etc.)
 Active subscriptions for the NGFW firewall images in scope
 Terraform 1.0 in the user environment
