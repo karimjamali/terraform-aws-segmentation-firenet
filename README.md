@@ -11,7 +11,7 @@ Another Aviatrix Transit without FireNet.
 3 x Ubuntu VMs with Key Pairs where each Ubuntu VM lies in one spoke.    
 Site2Cloud connection between AWS Transit with FireNet and on-prem (emulated by CSR in AWS).     
 
-The general objective was to showcase Multi-Cloud Network Segmentation (MCNS) and FireNet. 
+The general objective was to showcase Multi-Cloud Network Segmentation (MCNS) and FireNet but it could be used for different purposes. 
 
 # Component	Version:
 Aviatrix Controller	UserConnect-6.7.1186
