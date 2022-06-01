@@ -4,11 +4,14 @@ This repository builds out a completed representation of the infrastructure crea
 
 It builds the following:
 
-Aviatrix Transit FireNet in AWS (with Fortinet FortiGate Firewall) with 2 spokes.   
+Aviatrix Transit with FireNet having Palo Alto Networks VM-series Firewalls.   
+Another Aviatrix Transit without FireNet.   
+2 Spoke VPCs (Prod/Dev) attached to Aviatrix Transit with FireNet.   
+1 Spoke VPC (Shared Services) attached to the other Aviatrix Transit (Without Firenet).  
 Aviatrix Transit in Azure with 2 spokes.   
 Aviatrix Transit in GCP with 1 spoke.   
-Ubuntu VMs with password authentication (1 per spoke).   
-Multi-Cloud Segmentation (2 security domains, no connection policy).   
+3 x Ubuntu VMs with Key Pairs where each Ubuntu VM lies in one spoke.    
+ 
 Site2Cloud connection between Spoke in GCP and On-Prem Cisco CSR (emulated in AWS).   
 Site2Cloud connection between Transit in AWS and a separate On-Prem Cisco CSR (emulated in AWS).   
 Egress FQDN gateway in Azure Spoke 1 and 2.   
