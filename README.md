@@ -12,9 +12,8 @@ Aviatrix Transit in Azure with 2 spokes.
 Aviatrix Transit in GCP with 1 spoke.   
 3 x Ubuntu VMs with Key Pairs where each Ubuntu VM lies in one spoke.    
  
-Site2Cloud connection between Spoke in GCP and On-Prem Cisco CSR (emulated in AWS).   
-Site2Cloud connection between Transit in AWS and a separate On-Prem Cisco CSR (emulated in AWS).   
-Egress FQDN gateway in Azure Spoke 1 and 2.   
+Site2Cloud connection between AWS Transit with FireNet and on-prem (emulated by CSR in AWS).     
+  
 
 Component	Version
 Aviatrix Controller	UserConnect-6.6.5612 (6.6)
