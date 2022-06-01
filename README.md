@@ -2,7 +2,7 @@
 
 ## Summary
 
-This repository builds out a completed representation of the infrastructure created for the Aviatrix ACE Cloud Operations course.
+This repository builds out a sample topology for a demo on Multi-Cloud Network Segmentation (MCNS) and FireNet.
 
 It builds the following:
 
