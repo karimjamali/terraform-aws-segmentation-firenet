@@ -22,7 +22,7 @@ Terraform	> 1.0.
 AWS Terraform Provider	= 4.16.0.   
 
 ## Dependencies:
-Software version requirements met.     
+Software version requirements met     
 Aviatrix Controller & Copilot need to be up and running.   
 Onboarding the AWS Account is automated.       
 Aviatrix Controller & Copilot need to be up and running.       
