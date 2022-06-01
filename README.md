@@ -1,4 +1,6 @@
-# Summary
+# MCNS & FireNet
+
+## Summary
 
 This repository builds out a completed representation of the infrastructure created for the Aviatrix ACE Cloud Operations course.
 
@@ -13,13 +15,13 @@ Site2Cloud connection between AWS Transit with FireNet and on-prem (emulated by 
 
 The general objective was to showcase Multi-Cloud Network Segmentation (MCNS) and FireNet but it could be used for different purposes. 
 
-# Component	Version:
+## Component	Version:
 Aviatrix Controller	UserConnect-6.7.1186.   
 Aviatrix Terraform Provider	= 2.22.0.   
 Terraform	> 1.0.   
 AWS Terraform Provider	= 4.16.0.   
 
-# Dependencies:
+## Dependencies:
 Software version requirements met.     
 Aviatrix Controller & Copilot need to be up and running.   
 Onboarding the AWS Account is automated.       
