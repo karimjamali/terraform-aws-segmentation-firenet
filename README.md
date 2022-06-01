@@ -4,14 +4,14 @@ This repository builds out a completed representation of the infrastructure crea
 
 It builds the following:
 
-Aviatrix Transit FireNet in AWS (with Fortinet FortiGate Firewall) with 2 spokes
-Aviatrix Transit in Azure with 2 spokes
-Aviatrix Transit in GCP with 1 spoke
-Ubuntu VMs with password authentication (1 per spoke)
-Multi-Cloud Segmentation (2 security domains, no connection policy)
-Site2Cloud connection between Spoke in GCP and On-Prem Cisco CSR (emulated in AWS)
-Site2Cloud connection between Transit in AWS and a separate On-Prem Cisco CSR (emulated in AWS)
-Egress FQDN gateway in Azure Spoke 1 and 2
+Aviatrix Transit FireNet in AWS (with Fortinet FortiGate Firewall) with 2 spokes. 
+Aviatrix Transit in Azure with 2 spokes. 
+Aviatrix Transit in GCP with 1 spoke. 
+Ubuntu VMs with password authentication (1 per spoke). 
+Multi-Cloud Segmentation (2 security domains, no connection policy). 
+Site2Cloud connection between Spoke in GCP and On-Prem Cisco CSR (emulated in AWS). 
+Site2Cloud connection between Transit in AWS and a separate On-Prem Cisco CSR (emulated in AWS). 
+Egress FQDN gateway in Azure Spoke 1 and 2. 
 
 Component	Version
 Aviatrix Controller	UserConnect-6.6.5612 (6.6)
