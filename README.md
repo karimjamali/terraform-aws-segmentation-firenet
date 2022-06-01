@@ -4,7 +4,7 @@ This repository builds out a completed representation of the infrastructure crea
 
 It builds the following:
 
-Aviatrix Transit FireNet in AWS (with Fortinet FortiGate Firewall) with 2 spokes. 
+Aviatrix Transit FireNet in AWS (with Fortinet FortiGate Firewall) with 2 spokes.   
 Aviatrix Transit in Azure with 2 spokes. 
 Aviatrix Transit in GCP with 1 spoke. 
 Ubuntu VMs with password authentication (1 per spoke). 
