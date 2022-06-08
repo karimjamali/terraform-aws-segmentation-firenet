@@ -20,3 +20,4 @@ provider "aws" {
   region = var.aws_region_2
   access_key = var.aws_acess_key
   secret_key = var.aws_secret_key
+}
