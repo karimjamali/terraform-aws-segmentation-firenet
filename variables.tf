@@ -14,6 +14,24 @@ variable "avx_controller_password" {
   default = ""
 }
 
+variable "aws_account_number" {
+  default = ""
+}
+
+variable "aws_acess_key" {
+  description = "AWS Access Key"
+  default = ""
+}
+
+variable "aws_secret_key" {
+  description = "AWS Secret Key"
+  default = ""
+}
+
+variable "home_ip" {
+  default = ""
+}
+
 
 variable "aws_region_1" {
   default = "us-east-1"
