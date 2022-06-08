@@ -40,6 +40,6 @@ variable "aws_secret_key"
 variable "home_ip"    
 
 The topology created by Terraform can is shown below.  
-![Terraform no Segmentation](Terraform no Segmentation.png)
+![Terraform no Segmentation](Terraform no Segmentation)
 
 ![Lab Setup - Page 8 (9)](https://user-images.githubusercontent.com/16576150/171320244-84c8af17-88f6-491f-b304-a6c58ce2413f.png)
