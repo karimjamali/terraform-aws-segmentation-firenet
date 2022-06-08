@@ -248,44 +248,11 @@ resource "aws_security_group" "aws-us-east-2-shared-svcs-vm-sg" {
 
 }
 
-resource "aws_network_interface" "dev_eni" {
-  subnet_id   = module.spoke_aws-us-east-1-dev-1.vpc.public_subnets[1].subnet_id
-  private_ips = ["10..1.0.100"]
-
-  tags = {
-    Name = "dev_eni_primary"
-  }
-}
-
-resource "aws_network_interface" "prod_eni" {
-  subnet_id   = module.spoke_aws-us-east-1-dev-1.vpc.public_subnets[1].subnet_id
-  private_ips = ["10.2.0.100"]
-
-  tags = {
-    Name = "prod_eni_primary"
-  }
-}
-
-resource "aws_network_interface" "shared_svc_eni" {
-  subnet_id   = module.spoke_aws-us-east-1-dev-1.vpc.public_subnets[1].subnet_id
-  private_ips = ["10.3.0.100"]
-
-  tags = {
-    Name = "prod_eni_primary"
-  }
-}
-
-
-
 
 resource "aws_instance" "aws-us-east-1-dev-1-vm" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
-  #subnet_id = module.spoke_aws-us-east-1-dev-1.vpc.public_subnets[1].subnet_id
-  network_interface {
-    network_interface_id = aws_network_interface.dev_eni.id
-    device_index         = 0
-  }
+  subnet_id = module.spoke_aws-us-east-1-dev-1.vpc.public_subnets[1].subnet_id
   associate_public_ip_address = true
   vpc_security_group_ids = [aws_security_group.aws-us-east-1-dev-1-vm-sg.id]
   key_name = aws_key_pair.kp.key_name
@@ -298,11 +265,7 @@ resource "aws_instance" "aws-us-east-1-dev-1-vm" {
 resource "aws_instance" "aws-us-east-1-prod-1-vm" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
-  network_interface {
-    network_interface_id = aws_network_interface.prod_eni.id
-    device_index         = 0
-  }
-  #subnet_id = module.spoke_aws-us-east-1-prod-1.vpc.public_subnets[1].subnet_id
+  subnet_id = module.spoke_aws-us-east-1-prod-1.vpc.public_subnets[1].subnet_id
   associate_public_ip_address = true
   vpc_security_group_ids = [aws_security_group.aws-us-east-1-prod-1-vm-sg.id]
   key_name = aws_key_pair.kp.key_name
@@ -315,11 +278,7 @@ resource "aws_instance" "aws-us-east-1-prod-1-vm" {
 resource "aws_instance" "aws-us-east-2-shared-svcs-1-vm" {
   ami           = data.aws_ami.ubuntu2.id
   instance_type = "t3.micro"
-  #subnet_id = module.spoke_aws-us-east-2-shared-svcs.vpc.public_subnets[1].subnet_id
-  network_interface {
-    network_interface_id = aws_network_interface.shared_svc_eni.id
-    device_index         = 0
-  }
+  subnet_id = module.spoke_aws-us-east-2-shared-svcs.vpc.public_subnets[1].subnet_id
   associate_public_ip_address = true
   vpc_security_group_ids = [aws_security_group.aws-us-east-2-shared-svcs-vm-sg.id]
   key_name = aws_key_pair.kp2.key_name
