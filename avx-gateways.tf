@@ -58,18 +58,6 @@ module "spoke_aws-us-east-1-prod-1" {
   
 }
 
-module "spoke_aws-us-east-1-user-vpn" {
-  count = var.uservpn ? 1 : 0
-  source  = "terraform-aviatrix-modules/mc-spoke/aviatrix"
-  
-  cloud           = "AWS"
-  name            = "aws-us-east-1-user-vpn"
-  cidr            = "10.110.0.0/16"
-  region          = "us-east-1"
-  account         = aviatrix_account.aws-account.account_name
-  transit_gw      = module.mc_transit_aws-us-east-1-transit-1.transit_gateway.gw_name
-  
-}
 
 
 
@@ -89,14 +77,14 @@ module "mc_transit_aws-us-east-2-transit-1" {
 
 module "transit-peering" {
   source  = "terraform-aviatrix-modules/mc-transit-peering/aviatrix"
-  
-
+  version = "1.0.6"
   transit_gateways = [
-    module.mc_transit_aws-us-east-1-transit-1.transit_gateway.id,
-    module.mc_transit_aws-us-east-2-transit-1.transit_gateway.id
-    
+    module.mc_transit_aws-us-east-1-transit-1.transit_gateway.gw_name,
+    module.mc_transit_aws-us-east-2-transit-1.transit_gateway.gw_name 
   ]
+  
 }
+
 
 module "spoke_aws-us-east-2-shared-svcs" {
   source  = "terraform-aviatrix-modules/mc-spoke/aviatrix"
@@ -128,6 +116,10 @@ module "avx-demo-onprem-aws" {
   advertised_prefixes = var.advertised_prefixes
   az1                 = var.az1
   az2                 = var.az2
+  depends_on = [
+    module.mc_transit_aws-us-east-1-transit-1,
+    module.mc_transit_aws-us-east-2-transit-1
+  ]
 }
 
 
