@@ -27,12 +27,8 @@ Aviatrix Controller & Copilot (Optional) need to be up and running
 Onboarding the AWS Account is automated       
 Sufficient limits in place for CSPs and regions in scope (EIPs, Compute quotas, etc.)   
 Active subscriptions for the NGFW firewall images in scope   
-Account credentials for the AWS account defined in the variables file   
-avx_controller_ip   
-avx_controller_username   
-avx_controller_password   
-home_ip   
-aws_account_number
+
+
   
 
 
