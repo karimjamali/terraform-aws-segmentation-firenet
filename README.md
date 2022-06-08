@@ -26,6 +26,9 @@ Onboarding the AWS Account is automated
 Sufficient limits in place for CSPs and regions in scope (EIPs, Compute quotas, etc.)   
 Active subscriptions for the NGFW firewall images in scope   
 
+## Diagram
+The diagram with all layers and steps can be found here:https://lucid.app/lucidchart/8fb7c2d7-f481-42cc-a1ca-773ee9e3ae5b/edit?invitationId=inv_c9f886c7-c48b-4c23-a55f-1bfbcc7ddc60#
+
 ## Usage
 1. Clone the repository: [https://github.com/karimjamal](https://github.com/karimjamali/aviatrix-demo.git).  
 2. Update the below variable details in the variables.tf file. Please note that home_ip is your Public IP address where you will be accessing the lab from this will be used to program Security Groups to allow traffic from your Public IP.    
