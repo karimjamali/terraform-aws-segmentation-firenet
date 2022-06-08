@@ -1,14 +1,11 @@
-#Provide the IP address or FQDN of the Aviatrix controller
 variable "avx_controller_ip" {
   description = "AVX Controller IP Address"
   default = ""
 }
-#Provide the Aviatrix Controller username
 variable "avx_controller_username" {
   description = "AVX Controller username"
   default = ""
 }
-#Provide the Aviatrix Controller password
 variable "avx_controller_password" {
   description = "AVX Controller password"
   default = ""
@@ -41,15 +38,7 @@ variable "aws_region_2" {
   default = "us-east-2"
 }  
 
-#Provide the Home/Office Public IP that you will be accessing the setup from
-variable "home_ip" {
-  default = ""
-}
 
-#Provide the AWS Account Number
-variable "aws_account_number" {
-  default = ""
-}
 
 variable "aws_account_name" {
   default = "aws-account"
