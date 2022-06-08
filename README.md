@@ -16,7 +16,7 @@ Site2Cloud connection between AWS Transit with FireNet and on-prem (emulated by 
 The general objective was to showcase Multi-Cloud Network Segmentation (MCNS) and FireNet but it could be used for different purposes. 
 
 ## Component	Version:
-Aviatrix Controller	UserConnect-6.7.1186. 
+Aviatrix Controller	UserConnect-6.7.1186.     
 Versions of the Aviatrix, AWS and other providers can all be found in versions.tf. 
 
 ## Dependencies:
