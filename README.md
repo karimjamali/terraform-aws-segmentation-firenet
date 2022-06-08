@@ -28,8 +28,40 @@ Onboarding the AWS Account is automated
 Sufficient limits in place for CSPs and regions in scope (EIPs, Compute quotas, etc.)   
 Active subscriptions for the NGFW firewall images in scope   
 
+## Usage
+1. Clone the repository: [https://github.com/karimjamal](https://github.com/karimjamali/aviatrix-demo.git)
+2. Update the below variable details in the variables.tf file
+variable "avx_controller_ip" {
+  description = "AVX Controller IP Address"
+  default = ""
+}
 
-  
+variable "avx_controller_username" {
+  description = "AVX Controller username"
+  default = ""
+}
+variable "avx_controller_password" {
+  description = "AVX Controller password"
+  default = ""
+}
+
+variable "aws_account_number" {
+  default = ""
+}
+
+variable "aws_acess_key" {
+  description = "AWS Access Key"
+  default = ""
+}
+
+variable "aws_secret_key" {
+  description = "AWS Secret Key"
+  default = ""
+}
+
+variable "home_ip" {
+  default = ""
+}
 
 
 ![Lab Setup - Page 8 (9)](https://user-images.githubusercontent.com/16576150/171320244-84c8af17-88f6-491f-b304-a6c58ce2413f.png)
