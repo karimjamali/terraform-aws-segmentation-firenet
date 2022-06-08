@@ -29,14 +29,14 @@ Sufficient limits in place for CSPs and regions in scope (EIPs, Compute quotas, 
 Active subscriptions for the NGFW firewall images in scope   
 
 ## Usage
-1. Clone the repository: [https://github.com/karimjamal](https://github.com/karimjamali/aviatrix-demo.git)
-2. Update the below variable details in the variables.tf file. Please note that home_ip is your Public IP address where you will be accessing the lab from this will be used to program Security Groups to allow traffic from your Public IP.
-variable "avx_controller_ip" 
-variable "avx_controller_username" 
-variable "avx_controller_password" 
-variable "aws_account_number" 
-variable "aws_acess_key" 
-variable "aws_secret_key"
-variable "home_ip" 
+1. Clone the repository: [https://github.com/karimjamal](https://github.com/karimjamali/aviatrix-demo.git).  
+2. Update the below variable details in the variables.tf file. Please note that home_ip is your Public IP address where you will be accessing the lab from this will be used to program Security Groups to allow traffic from your Public IP.    
+variable "avx_controller_ip"   
+variable "avx_controller_username"   
+variable "avx_controller_password"    
+variable "aws_account_number"    
+variable "aws_acess_key"    
+variable "aws_secret_key"   
+variable "home_ip"    
 
 ![Lab Setup - Page 8 (9)](https://user-images.githubusercontent.com/16576150/171320244-84c8af17-88f6-491f-b304-a6c58ce2413f.png)
