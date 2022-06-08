@@ -39,6 +39,7 @@ variable "home_ip"
 
 The topology created by Terraform can is shown below.     
     
+        
 ![Terraform no Segmentation](https://user-images.githubusercontent.com/16576150/172522373-0c335a52-4995-4fae-8183-ad1740d58c5d.png)
 
 
