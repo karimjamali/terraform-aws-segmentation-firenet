@@ -29,6 +29,8 @@ Active subscriptions for the NGFW firewall images in scope
 ## Diagram
 The diagram with all layers and steps can be found here:https://lucid.app/lucidchart/8fb7c2d7-f481-42cc-a1ca-773ee9e3ae5b/edit?invitationId=inv_c9f886c7-c48b-4c23-a55f-1bfbcc7ddc60#
 
+<img width="258" alt="Screen Shot 2022-06-08 at 6 32 13 PM" src="https://user-images.githubusercontent.com/16576150/172728668-a2085596-cbcb-4dad-8955-16400ac2d070.png">
+
 ## Usage
 1. Clone the repository: [https://github.com/karimjamal](https://github.com/karimjamali/aviatrix-demo.git).  
 2. Update the below variable details in the variables.tf file. Please note that home_ip is your Public IP address where you will be accessing the lab from this will be used to program Security Groups to allow traffic from your Public IP.    
