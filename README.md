@@ -6,7 +6,7 @@ This repository builds out a sample topology for a demo on Multi-Cloud Network S
 
 It builds the following:
 
-Aviatrix Transit with FireNet having Palo Alto Networks VM-series Firewalls.   
+* Aviatrix Transit with FireNet having Palo Alto Networks VM-series Firewalls.   
 Another Aviatrix Transit without FireNet.  
 2 Spoke VPCs (Prod/Dev) attached to Aviatrix Transit with FireNet.   
 1 Spoke VPC (Shared Services) attached to the other Aviatrix Transit (Without Firenet).   
