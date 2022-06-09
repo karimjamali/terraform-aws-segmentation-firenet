@@ -62,4 +62,22 @@ The topology created by Terraform is shown below.
         
 ![Terraform no Segmentation](https://user-images.githubusercontent.com/16576150/172522373-0c335a52-4995-4fae-8183-ad1740d58c5d.png)
 
+## Step 1 Create the Network Domains
+Create the 3 Network Domains (Prod, Dev and Shared Services). Associate the Aviatrix Spoke(s) to their relevant domains. The steps can be found here:
+https://docs.aviatrix.com/HowTos/transit_segmentation_workflow.html
+
+Please note that the Transit Gateways have already been enabled for segmentation, and there is no need for connection policies at this stage.   
+
+Pings between Prod and Dev VMs will not work at this stage as they are isolated. 
+
+## Step 2 Create Connection Policies
+Prod and Dev need to be isolated however they need communication with shared services which could host Log collector, Netflow Collector and much more. This can be done via connection policies. This can be found in the Add/modify connection policies section below:
+https://docs.aviatrix.com/HowTos/transit_segmentation_workflow.html
+
+## Step 2 Extend Connection Policies to On-Prem
+Aviatrix's Multi-Cloud Network Segmentation can run across regions, accounts, and clouds. It can even extend to on-premises. 
+
+
+ 
+
 
