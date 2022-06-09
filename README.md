@@ -70,13 +70,17 @@ Please note that the Transit Gateways have already been enabled for segmentation
 
 Pings between Prod and Dev VMs will not work at this stage as they are isolated. 
 
+The figure below visualizes the updated requirement with Network Domains.  
+
+![Learning Thursdays (6)](https://user-images.githubusercontent.com/16576150/172955506-b1558815-d207-4b6c-89ea-9e78c6f1642f.png)
+
 ## Step 2 Create Connection Policies
 Prod and Dev need to be isolated however they need communication with shared services which could host Log collector, Netflow Collector and much more. This can be done via connection policies. This can be found in the Add/modify connection policies section below:
 https://docs.aviatrix.com/HowTos/transit_segmentation_workflow.html
 
-The figure below visualizes the updated requirement.
+The figure below visualizes the updated requirement with the Connection Policies.  
 
-![Learning Thursdays (6)](https://user-images.githubusercontent.com/16576150/172955506-b1558815-d207-4b6c-89ea-9e78c6f1642f.png)
+![Learning Thursdays (7)](https://user-images.githubusercontent.com/16576150/172956781-45cca760-670d-4120-8111-82a1bd0fcd95.png)
 
 
 ## Step 3 Extend Connection Policies to On-Prem
