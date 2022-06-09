@@ -84,7 +84,10 @@ The figure below visualizes the updated requirement with the Connection Policies
 
 
 ## Step 3 Extend Connection Policies to On-Prem
-Aviatrix's Multi-Cloud Network Segmentation can run across regions, accounts, and clouds. It can even extend to on-premises.   
+Aviatrix's Multi-Cloud Network Segmentation can run across regions, accounts, and clouds. It can even extend to on-premises.
+
+Pre-requisite: Please ensure the Site2Cloud connection between the on-prem (Emulated by CSR) and Transit is up. Site2Cloud connection between Transit in us-east-1 and on-prem (emulated by CSR on AWS) is configured on the Aviatrix side. In order to bring the tunnel up, you will just need to download the configuration to the CSR. The procedure can be found here: https://docs.aviatrix.com/HowTos/site2cloud.html.   
+
 ![Learning Thursdays (8)](https://user-images.githubusercontent.com/16576150/172957035-12eec113-3544-40a6-ad7d-7b7a799805ee.png) 
 
 
