@@ -289,5 +289,50 @@ resource "aws_instance" "aws-us-east-2-shared-svcs-1-vm" {
   provider = aws.west
 }
 
+resource "aws_route53_zone" "private" {
+  name = "avx-labs.com"
+
+  vpc {
+    vpc_id = module.spoke_aws-us-east-1-prod-1.vpc.vpc_id
+    
+}
+lifecycle {
+    ignore_changes = [vpc]
+  }
+  }
 
 
+resource "aws_route53_zone_association" "dev" {
+  zone_id = aws_route53_zone.private.zone_id
+  vpc_id  = module.spoke_aws-us-east-1-dev-1.vpc.vpc_id
+}
+
+resource "aws_route53_zone_association" "shared" {
+  zone_id = aws_route53_zone.private.zone_id
+  vpc_id  = module.spoke_aws-us-east-2-shared-svcs.vpc.vpc_id
+  vpc_region = "us-east-2"
+}
+
+resource "aws_route53_record" "prod" {
+  zone_id = aws_route53_zone.private.zone_id
+  name    = "prod.avx-labs.com"
+  type    = "A"
+  ttl     = "300"
+  records = [aws_instance.aws-us-east-1-prod-1-vm.private_ip]
+}
+
+resource "aws_route53_record" "dev" {
+  zone_id = aws_route53_zone.private.zone_id
+  name    = "dev.avx-labs.com"
+  type    = "A"
+  ttl     = "300"
+  records = [aws_instance.aws-us-east-1-dev-1-vm.private_ip]
+}
+
+resource "aws_route53_record" "shared" {
+  zone_id = aws_route53_zone.private.zone_id
+  name    = "shared.avx-labs.com"
+  type    = "A"
+  ttl     = "300"
+  records = [aws_instance.aws-us-east-2-shared-svcs-1-vm.private_ip]
+}
