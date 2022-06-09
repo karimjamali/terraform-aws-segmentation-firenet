@@ -47,7 +47,7 @@ The code creates a PHZ, links it to the 3 VPCs (Prod, Dev and Shared) so you can
 
 
 ## Usage
-1. Clone the repository: [https://github.com/karimjamal](https://github.com/karimjamali/aviatrix-demo.git).  
+1. Clone the repository: https://github.com/karimjamali/aviatrix-demo.git
 2. Update the below variable details in the variables.tf file. Please note that home_ip is your Public IP address where you will be accessing the lab from this will be used to program Security Groups to allow traffic from your Public IP.    
 variable "avx_controller_ip"   
 variable "avx_controller_username"   
