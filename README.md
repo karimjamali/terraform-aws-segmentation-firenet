@@ -88,7 +88,16 @@ Aviatrix's Multi-Cloud Network Segmentation can run across regions, accounts, an
 
 Pre-requisite: Please ensure the Site2Cloud connection between the on-prem (Emulated by CSR) and Transit is up. Site2Cloud connection between Transit in us-east-1 and on-prem (emulated by CSR on AWS) is configured on the Aviatrix side. In order to bring the tunnel up, you will just need to download the configuration to the CSR. The procedure can be found here: https://docs.aviatrix.com/HowTos/site2cloud.html.   
 
+Now that the S2C connection is up, you just need to Associate the Site to Cloud (S2C) connection to the Prod Network domain created earlier. Please note that intra-domain communication doesn't require any policy and happens by default and that with connection policies you can also access the Shared Services VM.
+
 ![Learning Thursdays (8)](https://user-images.githubusercontent.com/16576150/172957035-12eec113-3544-40a6-ad7d-7b7a799805ee.png) 
+
+
+## Step 4 FireNet   
+FireNet managed the bringup, insertion, possible bootstrap, and monitoring for 3rd party NGFWs (PANW, CheckPoint, Forinet).  
+Details about the solution can be found here: https://docs.aviatrix.com/HowTos/firewall_network_faq.html
+
+The Terraform code already created the end to end FireNet setup and the only remaining step is to configure the inspection policy which in simple terms means we need to select which VPCs are to be protected by the NGFW. In our setup, we will protect the connection to the Prod Spoke.  
 
 
 
