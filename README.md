@@ -2,7 +2,7 @@
 
 ## Summary
 
-This repository builds out a sample topology for a demo on Multi-Cloud Network Segmentation (MCNS) and FireNet.
+This repository builds out a sample topology on AWS for a demo on Multi-Cloud Network Segmentation (MCNS) and FireNet. 
 
 It builds the following:
 
