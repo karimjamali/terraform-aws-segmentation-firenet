@@ -29,6 +29,7 @@ Active subscriptions for the NGFW firewall images in scope
 ## Diagram
 The diagram with all layers and steps can be found here:https://lucid.app/lucidchart/8fb7c2d7-f481-42cc-a1ca-773ee9e3ae5b/edit?invitationId=inv_c9f886c7-c48b-4c23-a55f-1bfbcc7ddc60#
 
+
 The proper sequence for following the lab setup is as follows:    
 1. Initial Setup.   
 2. Network Domains.   
@@ -37,6 +38,12 @@ The proper sequence for following the lab setup is as follows:
 5. Enable FireNet.   
 
 <p align="center"><img width="258" alt="Screen Shot 2022-06-08 at 6 32 13 PM" src="https://user-images.githubusercontent.com/16576150/172728668-a2085596-cbcb-4dad-8955-16400ac2d070.png"></p>
+
+## Route53 Private Hosted Zone (PHZ)
+There are 3 instances in the lab named prod, dev, and shared. In order to make it easier to consume, the code creates a Private Hosted Zone (PHZ) links it to the 3 VPCs (Prod, Dev, and Shared) as shown below:
+
+<img width="1059" alt="Screen Shot 2022-06-09 at 12 11 15 AM" src="https://user-images.githubusercontent.com/16576150/172762558-e06d56ff-c2b0-47fa-948a-ce83bdb6e8c7.png">
+
 
 ## Usage
 1. Clone the repository: [https://github.com/karimjamal](https://github.com/karimjamali/aviatrix-demo.git).  
