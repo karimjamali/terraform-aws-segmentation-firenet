@@ -6,14 +6,14 @@ This repository builds out a sample topology for a demo on Multi-Cloud Network S
 
 It builds the following:
 
-* Aviatrix Transit with FireNet having Palo Alto Networks VM-series Firewalls.   
-* Another Aviatrix Transit without FireNet.  
-* 2 Spoke VPCs (Prod/Dev) attached to Aviatrix Transit with FireNet.   
-* 1 Spoke VPC (Shared Services) attached to the other Aviatrix Transit (Without Firenet).   
-* 3 x Ubuntu VMs with Key Pairs where each Ubuntu VM lies in one spoke. 
-* Site2Cloud connection between AWS Transit with FireNet and on-prem (emulated by CSR in AWS). For Site2Cloud you will just need to download the configuration on the CSR as the Aviatrix side is already configured.  
+* Aviatrix Transit in us-east-1 with FireNet having Palo Alto Networks VM-series Firewalls.   
+* Aviatrix Transit in us-east-2 without FireNet.  
+* 2 Spoke VPCs (Prod/Dev) attached to Aviatrix Transit in us-east-1  
+* 1 Spoke VPC (Shared Services) attached to the Aviatrix Transit in us-east-2 
+* 3 x Ubuntu VMs (prod, dev, shared) with Key Pairs where each Ubuntu VM lies in one spoke. 
+* Site2Cloud connection between AWS Transit in us-east-1 and on-prem (emulated by CSR in AWS). For Site2Cloud you will just need to download the configuration on the CSR as the Aviatrix side is already configured.  
 
-The general objective was to showcase Multi-Cloud Network Segmentation (MCNS) and FireNet but it could be used for different purposes. 
+The general objective is to showcase Multi-Cloud Network Segmentation (MCNS) and FireNet but it can be used for different purposes. 
 
 ## Component	Version:
 * Aviatrix Controller	UserConnect-6.7.1186.     
@@ -21,7 +21,7 @@ The general objective was to showcase Multi-Cloud Network Segmentation (MCNS) an
 
 ## Dependencies:
 * Software version requirements met     
-* Aviatrix Controller & Copilot (Optional) need to be up and running   
+* Aviatrix Controller & Copilot (Highly Recommended) need to be up and running   
 * Onboarding the AWS Account is automated       
 * Sufficient limits in place for CSPs and regions in scope (EIPs, Compute quotas, etc.)   
 * Active subscriptions for the NGFW firewall images in scope   
