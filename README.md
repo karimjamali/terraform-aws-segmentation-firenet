@@ -84,7 +84,11 @@ The figure below visualizes the updated requirement with the Connection Policies
 
 
 ## Step 3 Extend Connection Policies to On-Prem
-Aviatrix's Multi-Cloud Network Segmentation can run across regions, accounts, and clouds. It can even extend to on-premises. 
+Aviatrix's Multi-Cloud Network Segmentation can run across regions, accounts, and clouds. It can even extend to on-premises.   
+![Learning Thursdays (8)](https://user-images.githubusercontent.com/16576150/172957035-12eec113-3544-40a6-ad7d-7b7a799805ee.png) 
+
+
+
 
 
  
