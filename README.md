@@ -11,7 +11,7 @@ It builds the following:
 * 2 Spoke VPCs (Prod/Dev) attached to Aviatrix Transit in us-east-1  
 * 1 Spoke VPC (Shared Services) attached to the Aviatrix Transit in us-east-2 
 * 3 x Ubuntu VMs (prod, dev, shared) with Key Pairs where each Ubuntu VM lies in one spoke. 
-* Site2Cloud connection between AWS Transit in us-east-1 and on-prem (emulated by CSR in AWS). For Site2Cloud you will just need to download the configuration on the CSR as the Aviatrix side is already configured.  
+* Site2Cloud connection between AWS Transit in us-east-1 and on-prem (emulated by CSR on AWS). For Site2Cloud you will just need to download the configuration on the CSR as the Aviatrix side is already configured.  
 
 The general objective is to showcase Multi-Cloud Network Segmentation (MCNS) and FireNet but it can be used for different purposes. 
 
