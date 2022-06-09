@@ -74,7 +74,12 @@ Pings between Prod and Dev VMs will not work at this stage as they are isolated.
 Prod and Dev need to be isolated however they need communication with shared services which could host Log collector, Netflow Collector and much more. This can be done via connection policies. This can be found in the Add/modify connection policies section below:
 https://docs.aviatrix.com/HowTos/transit_segmentation_workflow.html
 
-## Step 2 Extend Connection Policies to On-Prem
+The figure below visualizes the updated requirement.
+
+![Learning Thursdays (6)](https://user-images.githubusercontent.com/16576150/172955506-b1558815-d207-4b6c-89ea-9e78c6f1642f.png)
+
+
+## Step 3 Extend Connection Policies to On-Prem
 Aviatrix's Multi-Cloud Network Segmentation can run across regions, accounts, and clouds. It can even extend to on-premises. 
 
 
