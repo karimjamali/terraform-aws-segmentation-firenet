@@ -62,45 +62,6 @@ The topology created by Terraform is shown below.
         
 ![Terraform no Segmentation](https://user-images.githubusercontent.com/16576150/172522373-0c335a52-4995-4fae-8183-ad1740d58c5d.png)
 
-## Step 1 Create the Network Domains
-Create the 3 Network Domains (Prod, Dev and Shared Services). Associate the Aviatrix Spoke(s) to their relevant domains. The steps can be found here:
-https://docs.aviatrix.com/HowTos/transit_segmentation_workflow.html
-
-Please note that the Transit Gateways have already been enabled for segmentation, and there is no need for connection policies at this stage.   
-
-Pings between Prod and Dev VMs will not work at this stage as they are isolated. 
-
-The figure below visualizes the updated requirement with Network Domains.  
-
-![Learning Thursdays (6)](https://user-images.githubusercontent.com/16576150/172955506-b1558815-d207-4b6c-89ea-9e78c6f1642f.png)
-
-## Step 2 Create Connection Policies
-Prod and Dev need to be isolated however they need communication with shared services which could host Log collector, Netflow Collector and much more. This can be done via connection policies. This can be found in the Add/modify connection policies section below:
-https://docs.aviatrix.com/HowTos/transit_segmentation_workflow.html
-
-The figure below visualizes the updated requirement with the Connection Policies.  
-
-![Learning Thursdays (7)](https://user-images.githubusercontent.com/16576150/172956781-45cca760-670d-4120-8111-82a1bd0fcd95.png)
-
-
-## Step 3 Extend Connection Policies to On-Prem
-Aviatrix's Multi-Cloud Network Segmentation can run across regions, accounts, and clouds. It can even extend to on-premises.
-
-Pre-requisite: Please ensure the Site2Cloud connection between the on-prem (Emulated by CSR) and Transit is up. Site2Cloud connection between Transit in us-east-1 and on-prem (emulated by CSR on AWS) is configured on the Aviatrix side. In order to bring the tunnel up, you will just need to download the configuration to the CSR. The procedure can be found here: https://docs.aviatrix.com/HowTos/site2cloud.html.   
-
-Now that the S2C connection is up, you just need to Associate the Site to Cloud (S2C) connection to the Prod Network domain created earlier. Please note that intra-domain communication doesn't require any policy and happens by default and that with connection policies you can also access the Shared Services VM.
-
-![Learning Thursdays (8)](https://user-images.githubusercontent.com/16576150/172957035-12eec113-3544-40a6-ad7d-7b7a799805ee.png) 
-
-
-## Step 4 FireNet   
-FireNet managed the bringup, insertion, possible bootstrap, and monitoring for 3rd party NGFWs (PANW, CheckPoint, Forinet).  
-Details about the solution can be found here: https://docs.aviatrix.com/HowTos/firewall_network_faq.html
-
-The Terraform code already created the end to end FireNet setup and the only remaining step is to configure the inspection policy which in simple terms means we need to select which VPCs are to be protected by the NGFW. In our setup, we will protect the connection to the Prod Spoke.  
-
-
-
 
 
  
