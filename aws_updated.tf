@@ -34,7 +34,24 @@ provisioner "local-exec" {
 
 }
 
+data "aws_ami" "nginx_proxy" {
+  most_recent = true
+   tags = {"env" = "kj909192-proxy-image"}
+  owners = ["830582736210"] 
+}
 
+data "aws_ami" "web_server" {
+  most_recent = true
+   tags = {"env" = "kj909192-web-image"}
+  owners = ["830582736210"] 
+}
+
+data "aws_ami" "db_server" {
+  provider = aws.west
+  most_recent = true
+   tags = {"env" = "kj909192-db-image"}
+  owners = ["830582736210"] 
+}
 
 
 
@@ -71,6 +88,11 @@ data "aws_ami" "ubuntu2" {
   
 }
 
+/*
+locals {
+  web_server_user_data = templatefile("${path.module}/aws_vm_config/webserver.tpl", {db_ip = aws_instance.aws-us-east-2-shared-svcs-1-vm.private_ip})
+}
+*/
 
 resource "aws_security_group_rule" "ingress_ssh_rule" {
   for_each = local.security_groups
@@ -247,16 +269,45 @@ resource "aws_security_group" "aws-us-east-2-shared-svcs-vm-sg" {
     provider = aws.west
 
 }
+/*
+resource "aws_network_interface" "dev_eni" {
+  subnet_id   = module.spoke_aws-us-east-1-dev-1.vpc.public_subnets[1].subnet_id
+  private_ips = ["10.1.0.100"]
+
+  tags = {
+    Name = "dev_eni_primary"
+  }
+}
+
+resource "aws_network_interface" "prod_eni" {
+  subnet_id   = module.spoke_aws-us-east-1-dev-1.vpc.public_subnets[1].subnet_id
+  private_ips = ["10.2.0.100"]
+
+  tags = {
+    Name = "prod_eni_primary"
+  }
+}
+
+resource "aws_network_interface" "shared_svc_eni" {
+  subnet_id   = module.spoke_aws-us-east-1-dev-1.vpc.public_subnets[1].subnet_id
+  private_ips = ["10.3.0.100"]
+
+  tags = {
+    Name = "prod_eni_primary"
+  }
+}
+*/
+
 
 
 resource "aws_instance" "aws-us-east-1-dev-1-vm" {
-  ami           = data.aws_ami.ubuntu.id
+  ami           = data.aws_ami.nginx_proxy.id
   instance_type = "t3.micro"
   subnet_id = module.spoke_aws-us-east-1-dev-1.vpc.public_subnets[1].subnet_id
   associate_public_ip_address = true
   vpc_security_group_ids = [aws_security_group.aws-us-east-1-dev-1-vm-sg.id]
   key_name = aws_key_pair.kp.key_name
-  user_data = file("${path.module}/aws_vm_config/aws_bootstrap.sh")
+  user_data =  templatefile("${path.module}/aws_vm_config/nginx_proxy.tpl", {web_ip = aws_instance.aws-us-east-1-prod-1-vm.private_ip})
   tags = {
     Name = "aws-us-east-1-dev-1-vm"
   }
@@ -269,7 +320,7 @@ resource "aws_instance" "aws-us-east-1-prod-1-vm" {
   associate_public_ip_address = true
   vpc_security_group_ids = [aws_security_group.aws-us-east-1-prod-1-vm-sg.id]
   key_name = aws_key_pair.kp.key_name
-  user_data = file("${path.module}/aws_vm_config/aws_bootstrap.sh")
+  user_data =  templatefile("${path.module}/aws_vm_config/webserver.tpl", {db_ip = aws_instance.aws-us-east-2-shared-svcs-1-vm.private_ip})
   tags = {
     Name = "aws-us-east-1-prod-1-vm"
   }
@@ -282,57 +333,12 @@ resource "aws_instance" "aws-us-east-2-shared-svcs-1-vm" {
   associate_public_ip_address = true
   vpc_security_group_ids = [aws_security_group.aws-us-east-2-shared-svcs-vm-sg.id]
   key_name = aws_key_pair.kp2.key_name
-  user_data = file("${path.module}/aws_vm_config/aws_bootstrap.sh")
+  user_data = file("${path.module}/aws_vm_config/database.sh")
   tags = {
     Name = "aws-us-east-2-shared-svcs-1-vm"
   }
   provider = aws.west
 }
 
-resource "aws_route53_zone" "private" {
-  name = "avx-labs.com"
-
-  vpc {
-    vpc_id = module.spoke_aws-us-east-1-prod-1.vpc.vpc_id
-    
-}
-lifecycle {
-    ignore_changes = [vpc]
-  }
-  }
 
 
-resource "aws_route53_zone_association" "dev" {
-  zone_id = aws_route53_zone.private.zone_id
-  vpc_id  = module.spoke_aws-us-east-1-dev-1.vpc.vpc_id
-}
-
-resource "aws_route53_zone_association" "shared" {
-  zone_id = aws_route53_zone.private.zone_id
-  vpc_id  = module.spoke_aws-us-east-2-shared-svcs.vpc.vpc_id
-  vpc_region = "us-east-2"
-}
-
-resource "aws_route53_record" "prod" {
-  zone_id = aws_route53_zone.private.zone_id
-  name    = "prod.avx-labs.com"
-  type    = "A"
-  ttl     = "300"
-  records = [aws_instance.aws-us-east-1-prod-1-vm.private_ip]
-}
-
-resource "aws_route53_record" "dev" {
-  zone_id = aws_route53_zone.private.zone_id
-  name    = "dev.avx-labs.com"
-  type    = "A"
-  ttl     = "300"
-  records = [aws_instance.aws-us-east-1-dev-1-vm.private_ip]
-}
-
-resource "aws_route53_record" "shared" {
-  zone_id = aws_route53_zone.private.zone_id
-  name    = "shared.avx-labs.com"
-  type    = "A"
-  ttl     = "300"
-  records = [aws_instance.aws-us-east-2-shared-svcs-1-vm.private_ip]
-}
