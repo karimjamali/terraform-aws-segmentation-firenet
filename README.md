@@ -1,4 +1,4 @@
-# MCNS & FireNet
+# AWS Wordpress
 
 ## Summary
 
