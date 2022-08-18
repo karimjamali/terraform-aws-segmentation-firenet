@@ -39,12 +39,6 @@ The proper sequence for following the lab setup is as follows:
 
 <p align="center"><img width="258" alt="Screen Shot 2022-06-08 at 6 32 13 PM" src="https://user-images.githubusercontent.com/16576150/172728668-a2085596-cbcb-4dad-8955-16400ac2d070.png"></p>
 
-## Route53 Private Hosted Zone (PHZ)
-The code creates a PHZ, links it to the 3 VPCs (Prod, Dev and Shared) so you can ping instances by their name.    
-
-
-<img width="1059" alt="Screen Shot 2022-06-09 at 12 11 15 AM" src="https://user-images.githubusercontent.com/16576150/172762558-e06d56ff-c2b0-47fa-948a-ce83bdb6e8c7.png">
-
 
 ## Usage
 1. Clone the repository: https://github.com/karimjamali/aviatrix-demo.git
